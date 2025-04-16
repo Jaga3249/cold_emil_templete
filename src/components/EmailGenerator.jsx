@@ -42,7 +42,15 @@ Jagannath Behera
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
+    <div
+      style={{
+        display: "flex",
+        padding: "2rem",
+        fontFamily: "Arial, sans-serif",
+        gap: "2rem",
+        flexWrap: "wrap",
+      }}
+    >
       <form
         onSubmit={handleSubmit}
         style={{
@@ -51,7 +59,8 @@ Jagannath Behera
           borderRadius: "8px",
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",
           maxWidth: "500px",
-          marginBottom: "2rem",
+          flex: "1",
+          minWidth: "300px",
         }}
       >
         <label>
@@ -89,7 +98,7 @@ Jagannath Behera
           >
             <option>Application for React js developer Position</option>
             <option>Application for Frontend developer Position</option>
-            <option>Application for Devloper developer Position</option>
+            <option>Application for Developer developer Position</option>
           </select>
         </label>
 
@@ -130,6 +139,8 @@ Jagannath Behera
             whiteSpace: "pre-wrap",
             boxShadow: "0 0 5px rgba(0,0,0,0.05)",
             maxWidth: "700px",
+            flex: "1",
+            minWidth: "300px",
           }}
           dangerouslySetInnerHTML={{ __html: emailOutput }}
         />
