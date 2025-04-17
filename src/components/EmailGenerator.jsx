@@ -9,6 +9,7 @@ const EmailGenerator = () => {
   });
 
   const [emailOutput, setEmailOutput] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,28 +18,56 @@ const EmailGenerator = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { receiverName, subject, companyName } = formData;
+    const { receiverName, receiverEmail, subject, companyName } = formData;
+
+    const position = subject
+      .replace("Application for", "")
+      .replace("Position", "")
+      .trim();
 
     const emailText = `
-<b>Subject:</b> ${subject}
+<b>Subject:</b> <b>${subject}</b><br/>
+<b>To:</b> ${receiverEmail}<br/><br/>
 
-Dear ${receiverName},
+Dear ${receiverName},<br/><br/>
 
-I hope you're doing well. My name is <b>Jagannath Behera</b>, and I'm reaching out to express my interest in any Frontend Developer opportunities at <b>${companyName}</b>.
+I hope you're doing well. My name is <b>Jagannath Behera</b>, and I'm reaching out to express my interest in any <b>${position}</b> opportunities at <b>${companyName}</b>.<br/><br/>
 
-I have <b>1 year</b> of hands-on experience in frontend development, specializing in <b>React.js, Next.js, React Native, TypeScript, and Tailwind CSS</b>, with a foundational understanding of <b>Node.js</b>. I’ve worked on projects focused on building intuitive, responsive user interfaces and integrating modern web functionalities.
+I have <b>1 year</b> of hands-on experience in frontend development, specializing in <b>React.js, Next.js, React Native, TypeScript, and Tailwind CSS</b>, with a foundational understanding of <b>Node.js</b>. I’ve worked on projects focused on building intuitive, responsive user interfaces and integrating modern web functionalities.<br/><br/>
 
-I’ve attached my resume for your review. I would be grateful if you could consider me for any suitable openings within your team.
+I’ve attached my resume for your review. I would be grateful if you could consider me for any suitable openings within your team.<br/><br/>
 
-Thanks for your time, and I look forward to the opportunity to connect.
+Thanks for your time, and I look forward to the opportunity to connect.<br/><br/>
 
-Best regards,  
-Jagannath Behera  
-📧 jagannathbehera3249@gmail.com  
-📞 7853808105
-    `.trim();
+Best regards,<br/>
+<b>Jagannath Behera</b><br/>
+📧 <a href="mailto:jagannathbehera3249@gmail.com">jagannathbehera3249@gmail.com</a><br/>
+📞 <a href="tel:+917853808105">7853808105</a>
+`.trim();
 
     setEmailOutput(emailText);
+    setCopied(false);
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": new Blob([emailOutput], { type: "text/html" }),
+          "text/plain": new Blob(
+            [
+              document.createRange().createContextualFragment(emailOutput)
+                .textContent,
+            ],
+            { type: "text/plain" }
+          ),
+        }),
+      ]);
+      setCopied(true);
+    } catch (err) {
+      console.error("Copy failed", err);
+      setCopied(false);
+    }
   };
 
   return (
@@ -99,6 +128,7 @@ Jagannath Behera
             <option>Application for React js developer Position</option>
             <option>Application for Frontend developer Position</option>
             <option>Application for Developer developer Position</option>
+            <option>Application for Junior Frontend Developer Position</option>
           </select>
         </label>
 
@@ -136,14 +166,44 @@ Jagannath Behera
             background: "#f8f9fa",
             padding: "1.5rem",
             borderRadius: "8px",
-            whiteSpace: "pre-wrap",
             boxShadow: "0 0 5px rgba(0,0,0,0.05)",
             maxWidth: "700px",
             flex: "1",
             minWidth: "300px",
+            position: "relative",
+            overflowX: "auto",
+            wordBreak: "break-word",
           }}
-          dangerouslySetInnerHTML={{ __html: emailOutput }}
-        />
+        >
+          <div
+            style={{
+              fontSize: "0.925rem",
+              lineHeight: "1.6",
+              fontFamily: "Arial, sans-serif",
+            }}
+            dangerouslySetInnerHTML={{ __html: emailOutput }}
+          />
+
+          {/* Inline style to override bold size */}
+          <style>
+            {`b { font-weight: bold; font-size: inherit !important; }`}
+          </style>
+
+          <button
+            onClick={handleCopy}
+            style={{
+              marginTop: "1rem",
+              padding: "8px 16px",
+              backgroundColor: "#28a745",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            {copied ? "Copied!" : "Copy to Clipboard"}
+          </button>
+        </div>
       )}
     </div>
   );
