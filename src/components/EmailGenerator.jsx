@@ -33,9 +33,10 @@ Dear ${receiverName},<br/><br/>
 
 I hope you're doing well. My name is <b>Jagannath Behera</b>, and I'm reaching out to express my interest in any <b>${position}</b> opportunities at <b>${companyName}</b>.<br/><br/>
 
-I have <b>1 year</b> of hands-on experience in frontend development, specializing in <b>React.js, Next.js, React Native, TypeScript, and Tailwind CSS</b>, with a foundational understanding of <b>Node.js</b>. I’ve worked on projects focused on building intuitive, responsive user interfaces and integrating modern web functionalities.<br/><br/>
+I have <b>2 year</b> of hands-on experience in frontend development, specializing in <b>React.js, Next.js, React Native, TypeScript, and Tailwind CSS</b>, with a foundational understanding of <b>Node.js</b>. I’ve worked on projects focused on building intuitive, responsive user interfaces and integrating modern web functionalities.<br/><br/>
 
-I’ve attached my resume for your review. I would be grateful if you could consider me for any suitable openings within your team.<br/><br/>
+I’ve attached my resume for your review. You can also view it directly here:  
+<a href="https://drive.google.com/file/d/1IA6jb0eznoKvol9IqCm1PGW9OO-HbHVk/view" target="_blank" title="https://drive.google.com/file/d/1IA6jb0eznoKvol9IqCm1PGW9OO-HbHVk/view">View Resume</a><br/><br/>
 
 Thanks for your time, and I look forward to the opportunity to connect.<br/><br/>
 
