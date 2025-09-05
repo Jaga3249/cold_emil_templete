@@ -40,9 +40,6 @@ I’ve attached my <a href="https://drive.google.com/file/d/1IA6jb0eznoKvol9IqCm
 If my profile aligns with your requirements, I would be grateful for an opportunity to interview with <b>${companyName}</b>.  
 <br/><br/>
 
-
-
-
 Best regards,<br/>
 <b>Jagannath Behera</b><br/>
 📧 <a href="mailto:jagannathbehera3249@gmail.com">jagannathbehera3249@gmail.com</a><br/>
@@ -129,10 +126,14 @@ Best regards,<br/>
             required
             style={inputStyle}
           >
-            <option>Application for React js developer Position</option>
-            <option>Application for Frontend developer Position</option>
-            <option>Application for Developer developer Position</option>
-            <option>Application for Junior Frontend Developer Position</option>
+            <option>Application for React.js Developer Position | 2 YOE</option>
+            <option>Application for Frontend Developer Position | 2 YOE</option>
+            <option>
+              Application for Full Stack Developer Position | 2 YOE
+            </option>
+            <option>
+              Application for Junior Frontend Developer Position | 2 YOE
+            </option>
           </select>
         </label>
 
