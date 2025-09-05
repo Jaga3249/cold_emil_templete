@@ -26,7 +26,7 @@ const EmailGenerator = () => {
       .trim();
 
     const emailText = `
-<b>Subject:</b> <b>${subject}</b><br/>
+<b>Subject:</b> ${subject} | <b>2 YOE</b><br/>
 <b>To:</b> ${receiverEmail}<br/><br/>
 
 Dear ${receiverName},<br/><br/>
@@ -126,14 +126,10 @@ Best regards,<br/>
             required
             style={inputStyle}
           >
-            <option>Application for React.js Developer Position | 2 YOE</option>
-            <option>Application for Frontend Developer Position | 2 YOE</option>
-            <option>
-              Application for Full Stack Developer Position | 2 YOE
-            </option>
-            <option>
-              Application for Junior Frontend Developer Position | 2 YOE
-            </option>
+            <option>Application for React js developer Position</option>
+            <option>Application for Frontend developer Position</option>
+            <option>Application for Developer developer Position</option>
+            <option>Application for Junior Frontend Developer Position</option>
           </select>
         </label>
 
